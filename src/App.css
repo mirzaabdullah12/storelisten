@@ -218,7 +218,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:#ecfdf5;color:#0f2420;-
 }
 .panel-right::before{
   content:'';position:absolute;inset:0;
-  background:rgba(255,255,255,.28);
+  background:rgba(209,250,229,.35);
   backdrop-filter:blur(36px) saturate(160%);
   -webkit-backdrop-filter:blur(36px) saturate(160%);
   border-left:1px solid rgba(16,185,129,.15);
@@ -235,19 +235,19 @@ body{font-family:'Inter',system-ui,sans-serif;background:#ecfdf5;color:#0f2420;-
 /* CARD */
 .card{
   width:100%;
-  background:rgba(236,253,245,.88);
-  border:1px solid rgba(16,185,129,.2);
+  background:rgba(209,250,229,.92);
+  border:1px solid rgba(16,185,129,.3);
   border-radius:24px;
   padding:44px 40px 38px;
   position:relative;
-  backdrop-filter:blur(48px) saturate(150%);
-  -webkit-backdrop-filter:blur(48px) saturate(150%);
+  backdrop-filter:blur(20px) saturate(120%);
+  -webkit-backdrop-filter:blur(20px) saturate(120%);
   animation:cardIn .9s cubic-bezier(.16,1,.3,1) both;
   box-shadow:
-    0 0 0 1px rgba(255,255,255,.7),
-    0 24px 60px rgba(15,36,32,.12),
-    0 8px 20px rgba(16,185,129,.06),
-    inset 0 1px 0 rgba(255,255,255,.9);
+    0 0 0 1px rgba(255,255,255,.6),
+    0 24px 60px rgba(15,36,32,.1),
+    0 8px 20px rgba(16,185,129,.08),
+    inset 0 1px 0 rgba(255,255,255,.8);
 }
 /* top accent line */
 .card::before{
@@ -278,8 +278,8 @@ body{font-family:'Inter',system-ui,sans-serif;background:#ecfdf5;color:#0f2420;-
 .card-logo-name{font-size:16px;font-weight:800;color:#0f2420;letter-spacing:-.2px}
 .card-logo-name em{color:#059669;font-style:normal}
 
-.card-title{font-size:27px;font-weight:900;letter-spacing:-.9px;color:#0f2420;margin-bottom:8px;line-height:1.12}
-.card-sub{font-size:14px;color:rgba(15,36,32,.5);line-height:1.55;font-weight:400}
+.card-title{font-size:27px;font-weight:900;letter-spacing:-.9px;color:#064e3b;margin-bottom:8px;line-height:1.12}
+.card-sub{font-size:14px;color:rgba(6,78,59,.6);line-height:1.55;font-weight:400}
 
 /* ── TABS ── */
 .tabs{
