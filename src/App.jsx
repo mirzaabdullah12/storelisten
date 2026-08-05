@@ -170,11 +170,11 @@ function SignupForm({ onSuccess }) {
 
   if (done) return (
     <div style={{ textAlign:'center', padding:'12px 0' }}>
-      <div style={{ width:60, height:60, borderRadius:'50%', background:'linear-gradient(135deg,#a855f7,#7c3aed)', display:'flex', alignItems:'center', justifyContent:'center', margin:'0 auto 18px', boxShadow:'0 0 30px rgba(168,85,247,.4)' }}>
+      <div style={{ width:60, height:60, borderRadius:'50%', background:'linear-gradient(135deg,#10b981,#059669)', display:'flex', alignItems:'center', justifyContent:'center', margin:'0 auto 18px', boxShadow:'0 0 30px rgba(16,185,129,.4)' }}>
         <svg width='26' height='26' viewBox='0 0 24 24' fill='none' stroke='#fff' strokeWidth='2.5' strokeLinecap='round' strokeLinejoin='round'><polyline points='20 6 9 17 4 12'/></svg>
       </div>
-      <h3 style={{ fontSize:20, fontWeight:700, color:'#fff', marginBottom:8, letterSpacing:'-.3px' }}>Account created!</h3>
-      <p style={{ fontSize:13.5, color:'rgba(255,255,255,.55)', lineHeight:1.6, marginBottom:24 }}>
+      <h3 style={{ fontSize:20, fontWeight:700, color:'#0f2420', marginBottom:8, letterSpacing:'-.3px' }}>Account created!</h3>
+      <p style={{ fontSize:13.5, color:'rgba(15,36,32,.55)', lineHeight:1.6, marginBottom:24 }}>
         Your account is ready.<br/>Sign in with your email and password to continue.
       </p>
       <button className='btn' onClick={onSuccess} style={{ maxWidth:200, margin:'0 auto' }}>
@@ -228,8 +228,8 @@ export default function App() {
   }, [])
 
   if (checking) return (
-    <div style={{ minHeight:'100vh', background:'#0e0020', display:'flex', alignItems:'center', justifyContent:'center' }}>
-      <div style={{ width:40, height:40, border:'3px solid rgba(168,85,247,.3)', borderTopColor:'#a855f7', borderRadius:'50%', animation:'spin .7s linear infinite' }} />
+    <div style={{ minHeight:'100vh', background:'#f0faf8', display:'flex', alignItems:'center', justifyContent:'center' }}>
+      <div style={{ width:40, height:40, border:'3px solid rgba(16,185,129,.25)', borderTopColor:'#10b981', borderRadius:'50%', animation:'spin .7s linear infinite' }} />
       <style>{'@keyframes spin{to{transform:rotate(360deg)}}'}</style>
     </div>
   )
@@ -242,54 +242,94 @@ export default function App() {
 
   return (
     <div className='page'>
+      {/* Background layers */}
       <div className='page-bg' aria-hidden='true' />
       <div className='grid-bg' aria-hidden='true' />
       <div className='blob blob-1' aria-hidden='true' />
       <div className='blob blob-2' aria-hidden='true' />
       <div className='blob blob-3' aria-hidden='true' />
+
+      {/* Soundwave illustration behind hero */}
+      <svg className='waveform' aria-hidden='true' viewBox='0 0 900 280' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet'>
+        {[
+          [450,30],[430,60],[410,20],[390,80],[370,15],[350,100],[330,50],[310,120],[290,40],
+          [270,140],[250,60],[230,160],[210,45],[190,130],[170,70],[150,110],[130,50],[110,90],
+          [90,30],[70,60],[50,20],[470,50],[490,90],[510,35],[530,110],[550,55],[570,130],
+          [590,40],[610,105],[630,25],[650,85],[670,45],[690,115],[710,60],[730,30],[750,90],
+          [770,50],[790,70],[810,35],[830,55],[850,25],[860,65]
+        ].map(([cx, halfH], i) => (
+          <rect key={i}
+            x={cx - 1.5} y={140 - halfH} width='3' height={halfH * 2}
+            rx='2' fill='url(#wg)'
+            opacity={0.4 + Math.sin(i * 0.5) * 0.35}
+          />
+        ))}
+        <defs>
+          <linearGradient id='wg' x1='0' y1='0' x2='0' y2='1'>
+            <stop offset='0%'  stopColor='#6C63FF' stopOpacity='1'/>
+            <stop offset='100%' stopColor='#c678ff' stopOpacity='0.4'/>
+          </linearGradient>
+        </defs>
+      </svg>
+
+      {/* Floating particles */}
       <div className='particles' aria-hidden='true'>
-        {[...Array(8)].map((_,i) => <div key={i} className='p' />)}
+        {[...Array(10)].map((_,i) => <div key={i} className='p' />)}
       </div>
 
+      {/* LEFT — editorial copy */}
       <aside className='panel-left'>
         <div className='brand'>
           <div className='brand-ico'><MicIco /></div>
           <span className='brand-name'>Store<em>Listen</em></span>
         </div>
-        <div className='pill-badge'><span className='pill-dot' />v1 Pilot · La Vaquita</div>
-        <h1 className='hero-title'>Know how every<br />shift went —<br /><span className='gr'>and what it costs.</span></h1>
-        <p className='hero-sub'>AI that listens at the counter, scores every conversation, and turns missed habits into a dollar figure your team can act on.</p>
+        <div className='pill-badge'><span className='pill-dot' />Live Pilot · La Vaquita</div>
+        <h1 className='hero-title'>
+          Every shift.<br />
+          Every missed sale.<br />
+          <span className='gr'>Measured.</span>
+        </h1>
+        <p className='hero-sub'>
+          AI that listens at the counter, scores every conversation, and surfaces exactly what it costs when your team forgets.
+        </p>
         <div className='stats'>
-          <div className='stat'><div className='val'>~$600</div><div className='lbl'>avg. monthly opportunity</div></div>
+          <div className='stat'><div className='val'>~$600</div><div className='lbl'>avg monthly opportunity</div></div>
           <div className='stat'><div className='val'>92%</div><div className='lbl'>rubric accuracy</div></div>
-          <div className='stat'><div className='val'>24h</div><div className='lbl'>time to first insight</div></div>
+          <div className='stat'><div className='val'>24h</div><div className='lbl'>to first insight</div></div>
         </div>
         <div className='features'>
-          {[['🔒','Redaction-first pipeline'],['🎙️','AI compliance engine'],['💰','Revenue opportunity'],['📊','Per-shift scoring']]
+          {[['🔒','Privacy-first redaction'],['🎙️','AI compliance scoring'],['💰','Revenue opportunity'],['📊','Per-shift reporting']]
             .map(([ico,lbl]) => <div key={lbl} className='feat'><span className='feat-ico'>{ico}</span>{lbl}</div>)}
         </div>
       </aside>
 
+      {/* RIGHT — auth card */}
       <main className='panel-right'>
-        <div className='card'>
-          <div className='card-head'>
-            <h2 className='card-title'>{tab === 'login' ? 'Sign in to your account' : 'Create your account'}</h2>
-            <p className='card-sub'>{tab === 'login' ? 'Welcome back — enter your details below.' : 'Start your free pilot today.'}</p>
-          </div>
-          <div className='tabs'>
-            <button className={'tab' + (tab === 'login' ? ' on' : '')} onClick={() => setTab('login')}>Sign In</button>
-            <button className={'tab' + (tab === 'signup' ? ' on' : '')} onClick={() => setTab('signup')}>Sign Up</button>
-          </div>
-          {tab === 'login'
-            ? <LoginForm  onSuccess={() => {}} />
-            : <SignupForm onSuccess={() => setTab('login')} />
-          }
-          <p className='foot'>
+        <div className='card-wrap'>
+          <div className='card'>
+            <div className='card-head'>
+              <div className='card-logo'>
+                <div className='card-logo-ico'><MicIco /></div>
+                <span className='card-logo-name'>Store<em>Listen</em></span>
+              </div>
+              <h2 className='card-title'>{tab === 'login' ? 'Welcome back' : 'Get started'}</h2>
+              <p className='card-sub'>{tab === 'login' ? 'Sign in to access your dashboard.' : 'Create your account — free to start.'}</p>
+            </div>
+            <div className='tabs'>
+              <button className={'tab' + (tab === 'login' ? ' on' : '')} onClick={() => setTab('login')}>Sign In</button>
+              <button className={'tab' + (tab === 'signup' ? ' on' : '')} onClick={() => setTab('signup')}>Sign Up</button>
+            </div>
             {tab === 'login'
-              ? <>No account? <a href='#' onClick={e => { e.preventDefault(); setTab('signup') }}>Sign up free</a></>
-              : <>Have an account? <a href='#' onClick={e => { e.preventDefault(); setTab('login') }}>Sign in</a></>
+              ? <LoginForm  onSuccess={() => {}} />
+              : <SignupForm onSuccess={() => setTab('login')} />
             }
-          </p>
+            <p className='foot'>
+              {tab === 'login'
+                ? <>No account? <a href='#' onClick={e => { e.preventDefault(); setTab('signup') }}>Sign up free</a></>
+                : <>Already have an account? <a href='#' onClick={e => { e.preventDefault(); setTab('login') }}>Sign in</a></>
+              }
+            </p>
+          </div>
         </div>
       </main>
     </div>
