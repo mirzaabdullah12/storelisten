@@ -13,10 +13,12 @@ body{font-family:'Inter',system-ui,sans-serif;background:#ecfdf5;color:#0f2420;-
 /* ── FULL BG IMAGE ── */
 .page-bg{
   position:fixed;inset:0;z-index:0;
-  background-image:url('./assets/for.avif');
+  background-image:url('/for.avif');
   background-size:cover;
   background-position:center center;
   background-repeat:no-repeat;
+  /* fallback if image fails */
+  background-color:#ecfdf5;
 }
 /* light overlay — image shows, text pops */
 .page-bg::before{ display:none; }
